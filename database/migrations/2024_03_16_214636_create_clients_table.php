@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->text('address');
+            $table->string('phone_number');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamps(); 
         });
     }
 
